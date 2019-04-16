@@ -43,17 +43,17 @@
 
 
     <section>
-        <article><p><a href="https://travis-ci.org/noveens/js-owncloud-client"><img src="https://travis-ci.org/owncloud/js-owncloud-client.svg?branch=master" alt="Build Status"></a>
-<a href="https://codecov.io/gh/owncloud/js-owncloud-client"><img src="https://codecov.io/gh/owncloud/js-owncloud-client/branch/master/graph/badge.svg" alt="codecov"></a>
-<a href="https://owncloud.github.io/js-owncloud-client/"><img src="https://img.shields.io/badge/api_docs-online-blue.svg" alt="docs"></a></p>
+        <article><p><a href="https://travis-ci.org/owncloud/owncloud-sdk"><img src="https://travis-ci.org/owncloud/owncloud-sdk.svg?branch=master" alt="Build Status"></a>
+<a href="https://codecov.io/gh/owncloud/owncloud-sdk"><img src="https://codecov.io/gh/owncloud/owncloud-sdk/branch/master/graph/badge.svg" alt="codecov"></a>
+<a href="https://owncloud.github.io/owncloud-sdk/"><img src="https://img.shields.io/badge/api_docs-online-blue.svg" alt="docs"></a></p>
 <p align="center">
   <img src="https://i.imgur.com/9mKra3O.png" />
 </p>
 
 <p>Use this light-weight JS library with a promise based interface for seamless communication with your ownCloud instance.<br>
 Supports only browser JS but requires Javascript techniques like webpack to compile it properly
-For Nods.js please have a look at <a href="https://github.com/owncloud/js-owncloud-client/releases/tag/last-nodejs">this tag</a></p>
-<h2>Install</h2><pre class="prettyprint source"><code>$ npm install js-owncloud-client</code></pre><h2>Usage</h2><pre class="prettyprint source lang-js"><code>var owncloud = require('js-owncloud-client');
+For Node.js please have a look at <a href="https://github.com/owncloud/owncloud-sdk/releases/tag/last-nodejs">this tag</a></p>
+<h2>Install</h2><pre class="prettyprint source"><code>$ npm install owncloud-sdk</code></pre><h2>Usage</h2><pre class="prettyprint source lang-js"><code>var owncloud = require('owncloud-sdk');
 var oc = new owncloud('*owncloud instance URL*');
 
 // Login
@@ -75,9 +75,9 @@ oc.files.list('/path/to/file/folder').then(files => {
     console.log(files);
 }).catch(error => {
     console.log(error);
-});</code></pre><h2>Example Projects</h2><h3>ownCloud Phoenix</h3><p><a href="https://github.com/owncloud/phoenix">ownCloud Phoenix</a> will be the next generation Web frontend for ownCloud. It uses js-owncloud-client.</p>
-<h2>All Methods Available</h2><p>Full API documentation is available at <a href="https://owncloud.github.io/js-owncloud-client/"><img src="https://img.shields.io/badge/api_docs-online-blue.svg" alt="docs"></a></p>
-<h3>General</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('js-owncloud-client');
+});</code></pre><h2>Example Projects</h2><h3>ownCloud Phoenix</h3><p><a href="https://github.com/owncloud/phoenix">ownCloud Phoenix</a> will be the next generation Web frontend for ownCloud. It uses owncloud-sdk.</p>
+<h2>All Methods Available</h2><p>Full API documentation is available at <a href="https://owncloud.github.io/owncloud-sdk/"><img src="https://img.shields.io/badge/api_docs-online-blue.svg" alt="docs"></a></p>
+<h3>General</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('owncloud-sdk');
 var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 <thead>
 <tr>
@@ -108,7 +108,7 @@ var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 </tr>
 </tbody>
 </table>
-<h3>Files Management</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('js-owncloud-client');
+<h3>Files Management</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('owncloud-sdk');
 var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 <thead>
 <tr>
@@ -171,7 +171,7 @@ var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 </tr>
 </tbody>
 </table>
-<h3>Apps Management</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('js-owncloud-client');
+<h3>Apps Management</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('owncloud-sdk');
 var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 <thead>
 <tr>
@@ -206,7 +206,7 @@ var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 </tr>
 </tbody>
 </table>
-<h3>Group Management</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('js-owncloud-client');
+<h3>Group Management</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('owncloud-sdk');
 var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 <thead>
 <tr>
@@ -237,7 +237,7 @@ var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 </tr>
 </tbody>
 </table>
-<h3>Share Management</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('js-owncloud-client');
+<h3>Share Management</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('owncloud-sdk');
 var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 <thead>
 <tr>
@@ -292,7 +292,7 @@ var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 </tr>
 </tbody>
 </table>
-<h3>User Management</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('js-owncloud-client');
+<h3>User Management</h3><pre class="prettyprint source lang-js"><code>var owncloud = require('owncloud-sdk');
 var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 <thead>
 <tr>
@@ -360,10 +360,8 @@ var oc = new owncloud('*owncloud instance URL*');</code></pre><table>
 </tbody>
 </table>
 <h2>Building the Documentation</h2><h3>JSDocs</h3><p>To build the jsdocs, type this command and follow the instructions on the terminal :</p>
-<pre class="prettyprint source"><code>$ cd node_modules/js-owncloud-client/
-$ yarn run docs</code></pre><h2>Unit tests</h2><p>The following command will run all unit tests. Before running the command, make sure you have edited the <code>owncloud/test/config.json</code> file accordingly.</p>
-<pre class="prettyprint source"><code>$ cd node_modules/js-owncloud-client/
-$ yarn test</code></pre><h2>Team</h2><table>
+<pre class="prettyprint source"><code>$ yarn run docs</code></pre><h2>Unit tests</h2><p>The following command will run all unit tests. Before running the command, make sure you have edited the <code>owncloud/test/config.json</code> file accordingly.</p>
+<pre class="prettyprint source"><code>$ yarn test</code></pre><h2>Team</h2><table>
   <tbody>
     <tr>
       <td align="center" valign="top">
@@ -403,7 +401,7 @@ $ yarn test</code></pre><h2>Team</h2><table>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Apr 16 2019 09:49:30 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Apr 16 2019 10:55:19 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
