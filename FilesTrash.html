@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: FilesVersions</title>
+    <title>JSDoc: Class: FilesTrash</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: FilesVersions</h1>
+    <h1 class="page-title">Class: FilesTrash</h1>
 
     
 
@@ -28,19 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>FilesVersions<span class="signature">(helperFile)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>FilesTrash<span class="signature">(helperFile)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><b><i> The FilesVersions class, has all the methods for your ownCloud files version management.</i></b><br><br>
-Supported Methods are:
-<ul>
- <li><b>Files Versions Management</b>
-     <ul>
-         <li>listVersions</li>
-         <li>getFileVersionContents</li>
-         <li>restoreFileVersion</li>
-     </ul>
- </li>
-</ul></div>
+            <div class="class-description"><b><i> The FilesTrash class has all the methods for ownCloud trash-bin management.</i></b><br><br></div>
         
     
 </header>
@@ -55,7 +45,7 @@ Supported Methods are:
     
 
     
-    <h4 class="name" id="FilesVersions"><span class="type-signature"></span>new FilesVersions<span class="signature">(helperFile)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="FilesTrash"><span class="type-signature"></span>new FilesTrash<span class="signature">(helperFile)</span><span class="type-signature"></span></h4>
     
 
     
@@ -101,7 +91,7 @@ Supported Methods are:
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">helpers</span>
 
 
             
@@ -145,13 +135,6 @@ Supported Methods are:
     
 
     
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Vincent Petry</li>
-        </ul>
-    </dd>
-    
 
     
 
@@ -162,7 +145,7 @@ Supported Methods are:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fileVersionManagement.js.html">fileVersionManagement.js</a>, <a href="fileVersionManagement.js.html#line6">line 6</a>
+        <a href="filesTrash.js.html">filesTrash.js</a>, <a href="filesTrash.js.html#line4">line 4</a>
     </li></ul></dd>
     
 
@@ -218,7 +201,7 @@ Supported Methods are:
     
 
     
-    <h4 class="name" id="getFileVersionContents"><span class="type-signature"></span>getFileVersionContents<span class="signature">(fileId, versionId)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="clearTrashBin"><span class="type-signature"></span>clearTrashBin<span class="signature">(item<span class="signature-attributes">nullable</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;(void|string|Error)>}</span></h4>
     
 
     
@@ -226,7 +209,7 @@ Supported Methods are:
 
 
 <div class="description">
-    Returns the content of a version of a remote file version
+    Clears the users trash-bin
 </div>
 
 
@@ -250,7 +233,11 @@ Supported Methods are:
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -262,7 +249,7 @@ Supported Methods are:
 
         <tr>
             
-                <td class="name"><code>fileId</code></td>
+                <td class="name"><code>item</code></td>
             
 
             <td class="type">
@@ -275,33 +262,26 @@ Supported Methods are:
             </td>
 
             
-
-            
-
-            <td class="description last">id of the remote file at OC instance</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>versionId</code></td>
-            
-
-            <td class="type">
-            
+                <td class="attributes">
                 
-<span class="param-type">string</span>
 
+                
+                    &lt;nullable><br>
+                
+
+                
+                </td>
+            
 
             
-            </td>
-
+                <td class="default">
+                
+                    null
+                
+                </td>
             
 
-            
-
-            <td class="description last">id of the version of the remote file at OC instance</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -342,167 +322,7 @@ Supported Methods are:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fileVersionManagement.js.html">fileVersionManagement.js</a>, <a href="fileVersionManagement.js.html#line65">line 65</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getFileVersionUrl"><span class="type-signature"></span>getFileVersionUrl<span class="signature">(fileId, versionId)</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Returns the url of a remote file version
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>fileId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">id of the remote file at OC instance</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>versionId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">id of the version of the remote file at OC instance</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fileVersionManagement.js.html">fileVersionManagement.js</a>, <a href="fileVersionManagement.js.html#line123">line 123</a>
+        <a href="filesTrash.js.html">filesTrash.js</a>, <a href="filesTrash.js.html#line68">line 68</a>
     </li></ul></dd>
     
 
@@ -530,10 +350,6 @@ Supported Methods are:
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    Url of the remote file version
-</div>
-
 
 
 <dl>
@@ -542,7 +358,7 @@ Supported Methods are:
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type">Promise.&lt;(void|string|Error)></span>
 
 
     </dd>
@@ -560,7 +376,7 @@ Supported Methods are:
     
 
     
-    <h4 class="name" id="listVersions"><span class="type-signature"></span>listVersions<span class="signature">(fileId)</span><span class="type-signature"> &rarr; {Promise.&lt;fileInfo>|Promise.&lt;error>}</span></h4>
+    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(path, depth, properties)</span><span class="type-signature"> &rarr; {Promise.&lt;(fileInfo|string|Error)>}</span></h4>
     
 
     
@@ -568,7 +384,7 @@ Supported Methods are:
 
 
 <div class="description">
-    Returns a list of versions for the given file id
+    Returns the listing/contents of the trash-bin
 </div>
 
 
@@ -604,7 +420,7 @@ Supported Methods are:
 
         <tr>
             
-                <td class="name"><code>fileId</code></td>
+                <td class="name"><code>path</code></td>
             
 
             <td class="type">
@@ -620,7 +436,53 @@ Supported Methods are:
 
             
 
-            <td class="description last">file id</td>
+            <td class="description last">path of the file/folder at OC instance</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>depth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">0: only file/folder, 1: upto 1 depth, infinity: infinite depth</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>properties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array[string] with dav properties to be requested</td>
         </tr>
 
     
@@ -661,7 +523,7 @@ Supported Methods are:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fileVersionManagement.js.html">fileVersionManagement.js</a>, <a href="fileVersionManagement.js.html#line42">line 42</a>
+        <a href="filesTrash.js.html">filesTrash.js</a>, <a href="filesTrash.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -687,12 +549,8 @@ Supported Methods are:
 
 
 <h5>Returns:</h5>
-<ul>
-        <li>
-<div class="param-desc">
-    Array[objects]: each object is an instance of class fileInfo
-</div>
 
+        
 
 
 <dl>
@@ -701,33 +559,13 @@ Supported Methods are:
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;fileInfo></span>
+<span class="param-type">Promise.&lt;(fileInfo|string|Error)></span>
 
 
     </dd>
 </dl>
-</li>
+
     
-        <li>
-<div class="param-desc">
-    string: error message, if any.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;error></span>
-
-
-    </dd>
-</dl>
-</li>
-    </ul>
 
 
 
@@ -739,7 +577,7 @@ Supported Methods are:
     
 
     
-    <h4 class="name" id="restoreFileVersion"><span class="type-signature"></span>restoreFileVersion<span class="signature">(fileId, versionId, targetPath)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="restore"><span class="type-signature"></span>restore<span class="signature">(fileId, originalLocation, overWrite)</span><span class="type-signature"> &rarr; {Promise.&lt;(void|string|Error)>}</span></h4>
     
 
     
@@ -747,7 +585,7 @@ Supported Methods are:
 
 
 <div class="description">
-    Restores a version of a remote file version
+    Restores an item to it's original location.
 </div>
 
 
@@ -772,6 +610,8 @@ Supported Methods are:
 
         
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -798,15 +638,19 @@ Supported Methods are:
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
-            <td class="description last">id of the remote file at OC instance</td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>versionId</code></td>
+                <td class="name"><code>originalLocation</code></td>
             
 
             <td class="type">
@@ -821,21 +665,25 @@ Supported Methods are:
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
-            <td class="description last">id of the version of the remote file at OC instance</td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>targetPath</code></td>
+                <td class="name"><code>overWrite</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -844,8 +692,14 @@ Supported Methods are:
             
 
             
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
 
-            <td class="description last">path of the remote file at OC instance</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -886,7 +740,7 @@ Supported Methods are:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fileVersionManagement.js.html">fileVersionManagement.js</a>, <a href="fileVersionManagement.js.html#line92">line 92</a>
+        <a href="filesTrash.js.html">filesTrash.js</a>, <a href="filesTrash.js.html#line96">line 96</a>
     </li></ul></dd>
     
 
@@ -911,6 +765,24 @@ Supported Methods are:
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;(void|string|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
