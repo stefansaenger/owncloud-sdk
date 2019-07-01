@@ -28,18 +28,19 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ownCloud<span class="signature">(instance, options)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>ownCloud<span class="signature">(options)</span><span class="type-signature"></span></h2>
         
             <div class="class-description"><b><i> The ownCloud class, the main class which holds all other classes like shares, apps etc.</i></b><br><br>
 Supported Methods are:
 <ul>
  <li><b>General</b>
      <ul>
-         <li>setInstance</li>
+         <li>init</li>
          <li>login</li>
+         <li>logout</li>
          <li>getConfig</li>
-         <li>getVersion</li>
          <li>getCapabilities</li>
+         <li>getCurrentUser</li>
      </ul>
  </li>
 </ul></div>
@@ -57,7 +58,7 @@ Supported Methods are:
     
 
     
-    <h4 class="name" id="ownCloud"><span class="type-signature"></span>new ownCloud<span class="signature">(instance, options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ownCloud"><span class="type-signature"></span>new ownCloud<span class="signature">(options)</span><span class="type-signature"></span></h4>
     
 
     
@@ -93,29 +94,6 @@ Supported Methods are:
     </thead>
 
     <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>instance</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">URL of the ownCloud instance</td>
-        </tr>
-
     
 
         <tr>
@@ -295,7 +273,7 @@ Supported Methods are:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line205">line 205</a>
+        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line110">line 110</a>
     </li></ul></dd>
     
 
@@ -425,7 +403,7 @@ Supported Methods are:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line166">line 166</a>
+        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line98">line 98</a>
     </li></ul></dd>
     
 
@@ -503,7 +481,7 @@ Supported Methods are:
     
 
     
-    <h4 class="name" id="getCurrentUser"><span class="type-signature"></span>getCurrentUser<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;capabilities>|Promise.&lt;reject>}</span></h4>
+    <h4 class="name" id="getCurrentUser"><span class="type-signature"></span>getCurrentUser<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;user>|Promise.&lt;reject>}</span></h4>
     
 
     
@@ -555,7 +533,7 @@ Supported Methods are:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line227">line 227</a>
+        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line119">line 119</a>
     </li></ul></dd>
     
 
@@ -591,7 +569,7 @@ Supported Methods are:
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;capabilities></span>
+<span class="param-type">Promise.&lt;user></span>
 
 
     </dd>
@@ -625,137 +603,7 @@ Supported Methods are:
     
 
     
-    <h4 class="name" id="getVersion"><span class="type-signature"></span>getVersion<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;version>|Promise.&lt;error>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Gets the ownCloud version of the connected server
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line182">line 182</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-<ul>
-        <li>
-<div class="param-desc">
-    string: ownCloud version
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;version></span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-<div class="param-desc">
-    string: error message, if any.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;error></span>
-
-
-    </dd>
-</dl>
-</li>
-    </ul>
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="login"><span class="type-signature"></span>login<span class="signature">(username, password)</span><span class="type-signature"> &rarr; {Promise.&lt;status>|Promise.&lt;error>}</span></h4>
+    <h4 class="name" id="login"><span class="type-signature"></span>login<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;status>|Promise.&lt;error>}</span></h4>
     
 
     
@@ -774,78 +622,6 @@ Supported Methods are:
 
 
 
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>username</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">name of the user to login</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>password</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">password of the user to login</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
 
 
 
@@ -879,7 +655,7 @@ Supported Methods are:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line90">line 90</a>
+        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line81">line 81</a>
     </li></ul></dd>
     
 
@@ -946,344 +722,6 @@ Supported Methods are:
 </dl>
 </li>
     </ul>
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="loginWithBearer"><span class="type-signature"></span>loginWithBearer<span class="signature">(token)</span><span class="type-signature"> &rarr; {Promise.&lt;status>|Promise.&lt;error>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Logs in to the specified ownCloud instance (Updates capabilities)
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>token</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">name of the user to login</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line113">line 113</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-<ul>
-        <li>
-<div class="param-desc">
-    boolean: whether login was successful or not
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;status></span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-<div class="param-desc">
-    string: error message, if any.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;error></span>
-
-
-    </dd>
-</dl>
-</li>
-    </ul>
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="setInstance"><span class="type-signature"></span>setInstance<span class="signature">(instance)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Logs in to the specified ownCloud instance (Updates capabilities)
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>instance</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">URL of the OC instance</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="owncloud.js.html">owncloud.js</a>, <a href="owncloud.js.html#line138">line 138</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    always true.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -1311,7 +749,7 @@ Supported Methods are:
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.2</a> on Thu Jun 27 2019 13:45:43 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.2</a> on Mon Jul 01 2019 06:40:43 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
