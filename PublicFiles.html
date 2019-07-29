@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: SystemTags</title>
+    <title>JSDoc: Class: PublicFiles</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: SystemTags</h1>
+    <h1 class="page-title">Class: PublicFiles</h1>
 
     
 
@@ -28,9 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>SystemTags<span class="signature">(helperFile)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>PublicFiles<span class="signature">(helperFile)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><b><i> The SystemTags class, has all the methods for ownCloud system tags management.</i></b><br><br></div>
+            <div class="class-description"><b><i> The PublicFiles class allows access to all file and folders in a public link..</i></b><br><br></div>
         
     
 </header>
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="SystemTags"><span class="type-signature"></span>new SystemTags<span class="signature">(helperFile)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="PublicFiles"><span class="type-signature"></span>new PublicFiles<span class="signature">(helperFile)</span><span class="type-signature"></span></h4>
     
 
     
@@ -135,6 +135,13 @@
     
 
     
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Thomas Müller</li>
+        </ul>
+    </dd>
+    
 
     
 
@@ -145,7 +152,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="systemTags.js.html">systemTags.js</a>, <a href="systemTags.js.html#line4">line 4</a>
+        <a href="publicLinkAccess.js.html">publicLinkAccess.js</a>, <a href="publicLinkAccess.js.html#line4">line 4</a>
     </li></ul></dd>
     
 
@@ -201,7 +208,7 @@
     
 
     
-    <h4 class="name" id="createTag"><span class="type-signature"></span>createTag<span class="signature">(tagInfo)</span><span class="type-signature"> &rarr; {Promise.&lt;number>|Promise.&lt;error>}</span></h4>
+    <h4 class="name" id="download"><span class="type-signature"></span>download<span class="signature">(token, path, password)</span><span class="type-signature"> &rarr; {Promise.&lt;Response>}</span></h4>
     
 
     
@@ -209,7 +216,7 @@
 
 
 <div class="description">
-    Create a new system tag
+    Download the content of a file in a public link
 </div>
 
 
@@ -235,6 +242,8 @@
         
 
         
+        <th>Default</th>
+        
 
         <th class="last">Description</th>
     </tr>
@@ -245,7 +254,209 @@
 
         <tr>
             
-                <td class="name"><code>tagInfo</code></td>
+                <td class="name"><code>token</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="publicLinkAccess.js.html">publicLinkAccess.js</a>, <a href="publicLinkAccess.js.html#line57">line 57</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Response></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(token, password)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;fileInfo>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Lists files in a public link as determined by the given token
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>token</code></td>
             
 
             <td class="type">
@@ -260,8 +471,41 @@
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
-            <td class="description last">the tag info</td>
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last"></td>
         </tr>
 
     
@@ -302,7 +546,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="systemTags.js.html">systemTags.js</a>, <a href="systemTags.js.html#line30">line 30</a>
+        <a href="publicLinkAccess.js.html">publicLinkAccess.js</a>, <a href="publicLinkAccess.js.html#line32">line 32</a>
     </li></ul></dd>
     
 
@@ -328,12 +572,8 @@
 
 
 <h5>Returns:</h5>
-<ul>
-        <li>
-<div class="param-desc">
-    id of the newly created system tag
-</div>
 
+        
 
 
 <dl>
@@ -342,235 +582,13 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;number></span>
+<span class="param-type">Promise.&lt;Array.&lt;fileInfo>></span>
 
 
     </dd>
 </dl>
-</li>
-    
-        <li>
-<div class="param-desc">
-    string: error message, if any.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;error></span>
-
-
-    </dd>
-</dl>
-</li>
-    </ul>
-
-
-
-
-
-        
-            
 
     
-
-    
-    <h4 class="name" id="tagFile"><span class="type-signature"></span>tagFile<span class="signature">(fileId, tagId)</span><span class="type-signature"> &rarr; {Promise|Promise.&lt;error>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Assing a tag to a file/folder
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>fileId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">id of the file/folder</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>tagId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">id of the tag</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="systemTags.js.html">systemTags.js</a>, <a href="systemTags.js.html#line68">line 68</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-<ul>
-        <li>
-<div class="param-desc">
-    resolves if successful
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-<div class="param-desc">
-    string: error message, if any.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;error></span>
-
-
-    </dd>
-</dl>
-</li>
-    </ul>
 
 
 
