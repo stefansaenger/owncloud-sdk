@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: httpError.js</title>
+    <title>JSDoc: Source: owncloud-sign-url/src/utils.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: httpError.js</h1>
+    <h1 class="page-title">Source: owncloud-sign-url/src/utils.js</h1>
 
     
 
@@ -26,21 +26,29 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @class HttpError
- * @classdesc A error class for Http errors
- * @param   {number}    code     http status code
- * @param   {string}    message  optional message to be added to the HTTPError
+            <pre class="prettyprint source linenums"><code>const crypto = require('crypto')
+const defaultValues = require('./constants/defaultValues.constant')
+
+exports.createHashedKey = createHashedKey
+
+/**
+ * Create a hashed key with secretKey from the string
+ * @param {string} stringToHash - The string that will be hashed.
+ * @param {string} algorithm - Hashing algorithm.
+ * @param {string} secretKey - Secret string.
+ * @returns {string} Ready hashed key.
  */
+function createHashedKey (stringToHash, algorithm, secretKey) {
+  const hashedKey = crypto.pbkdf2Sync(
+    stringToHash,
+    secretKey,
+    defaultValues.ITERATION_COUNT,
+    defaultValues.HASH_LENGTH,
+    algorithm
+  )
 
-class HTTPError extends Error {
-  constructor (code, message = null) {
-    super(message)
-    this.statusCode = code
-  }
+  return hashedKey.toString(defaultValues.DIGEST_VALUE)
 }
-
-module.exports = HTTPError
 </code></pre>
         </article>
     </section>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: HttpError</title>
+    <title>JSDoc: Global</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: HttpError</h1>
+    <h1 class="page-title">Global</h1>
 
     
 
@@ -28,9 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>HttpError<span class="signature">(code, message)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description">A error class for Http errors</div>
+        <h2></h2>
         
     
 </header>
@@ -40,17 +38,82 @@
     
         
 
-    
-    <h2>Constructor</h2>
-    
+        
 
-    
-    <h4 class="name" id="HttpError"><span class="type-signature"></span>new HttpError<span class="signature">(code, message)</span><span class="type-signature"></span></h4>
-    
+
+<dl class="details">
 
     
 
+    
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="createHashedKey"><span class="type-signature"></span>createHashedKey<span class="signature">(stringToHash, algorithm, secretKey)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Create a hashed key with secretKey from the string
+</div>
 
 
 
@@ -85,30 +148,7 @@
 
         <tr>
             
-                <td class="name"><code>code</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">http status code</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>message</code></td>
+                <td class="name"><code>stringToHash</code></td>
             
 
             <td class="type">
@@ -124,7 +164,53 @@
 
             
 
-            <td class="description last">optional message to be added to the HTTPError</td>
+            <td class="description last">The string that will be hashed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>algorithm</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Hashing algorithm.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>secretKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Secret string.</td>
         </tr>
 
     
@@ -165,7 +251,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="httpError.js.html">httpError.js</a>, <a href="httpError.js.html#line1">line 1</a>
+        <a href="owncloud-sign-url_src_utils.js.html">owncloud-sign-url/src/utils.js</a>, <a href="owncloud-sign-url_src_utils.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -190,28 +276,34 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Ready hashed key.
+</div>
 
 
 
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
 
+
+    </dd>
+</dl>
 
     
-    </div>
 
-    
 
-    
 
-    
 
-    
 
-    
-
-    
-
-    
-
+        
     
 
     

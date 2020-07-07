@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: owncloud-sign-url/src/signUrl.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: owncloud-sign-url/src/signUrl.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const utils = require('./utils')
+const httpCodes = require('./constants/httpCodes.constant')
+const errorMessages = require('./constants/errorMessages.constant')
+const defaultValues = require('./constants/defaultValues.constant')
+
+module.exports = class SignUrl {
+  /**
+   * SignUrl constructor.
+   * @param {object} options - Starting options.
+   * @param {string} options.credential - The credential string.
+   * @param {string} options.secretKey - The secret string.
+   * @param {number} [options.ttl] - The default time-to-live in seconds.
+   * @param {string} [options.algorithm] - The hashing algorithm.
+   * @constructor
+   */
+  constructor (options) {
+    if (options === undefined) {
+      throw new Error(errorMessages.OPTIONS_UNDEFINED)
+    }
+    if (options.credential === undefined) {
+      throw new Error(errorMessages.CREDENTIAL_UNDEFINED)
+    }
+    if (options.secretKey === undefined) {
+      throw new Error(errorMessages.SECRET_KEY_UNDEFINED)
+    }
+
+    this.secretKey = options.secretKey
+    this.credential = options.credential
+    this.ttl = options.ttl || defaultValues.DEFAULT_TTL
+    this.algorithm = options.algorithm || defaultValues.DEFAULT_ALGORITHM
+
+    this.generateSignedUrl = this.generateSignedUrl.bind(this)
+    this.verifySignedUrl = this.verifySignedUrl.bind(this)
+  }
+
+  /**
+   * Generates secured url.
+   * @param {string} url - Existing url(full address).
+   * @param {string} httpMethod - The http method.
+   * @returns {string} Signed url.
+   */
+  generateSignedUrl (url, httpMethod) {
+    if (url === undefined) {
+      throw new Error(errorMessages.URL_PARAM_UNDEFINED)
+    }
+
+    if (httpMethod === undefined) {
+      throw new Error(errorMessages.HTTP_METHOD_PARAM_UNDEFINED)
+    }
+
+    if (url.endsWith('/')) {
+      throw new Error(errorMessages.URL_IS_NOT_VALID)
+    }
+
+    url = new URL(url)
+    url.searchParams.set('OC-Credential', this.credential)
+    url.searchParams.set('OC-Date', new Date().toISOString())
+    url.searchParams.set('OC-Expires', this.ttl)
+    url.searchParams.set('OC-Verb', httpMethod.toUpperCase())
+
+    const hashedKey = utils.createHashedKey(
+      url.toString(),
+      this.algorithm,
+      this.secretKey
+    )
+
+    url.searchParams.set('OC-Signature', hashedKey)
+    return url.toString()
+  }
+
+  /**
+   * Verifying URL for validity and returns result code.
+   * @returns {number} Result code.
+   */
+  verifySignedUrl (url, method = 'GET') {
+    url = new URL(url)
+    const urlSignature = url.searchParams.get('OC-Signature')
+    if (urlSignature === null) {
+      return httpCodes.BAD_REQUEST
+    }
+    url.searchParams.delete('OC-Signature')
+
+    const hashedKey = utils.createHashedKey(
+      url.toString(),
+      this.algorithm,
+      this.secretKey
+    )
+
+    if (hashedKey !== urlSignature) {
+      return httpCodes.FORBIDDEN
+    }
+
+    const ocVerb = url.searchParams.get('OC-Verb')
+    if (ocVerb &amp;&amp; ocVerb.toUpperCase() !== method.toUpperCase()) {
+      return httpCodes.FORBIDDEN
+    }
+
+    const date = url.searchParams.get('OC-Date')
+    if (date === null) {
+      return httpCodes.BAD_REQUEST
+    }
+
+    var expires = url.searchParams.get('OC-Expires')
+    if (expires === null) {
+      return httpCodes.BAD_REQUEST
+    }
+    expires = parseInt(expires)
+    if (isNaN(expires)) {
+      return httpCodes.BAD_REQUEST
+    }
+    const expiryDate = new Date(date)
+    expiryDate.setSeconds(expiryDate.getSeconds() + expires)
+    if (expiryDate &lt; new Date()) {
+      return httpCodes.EXPIRED
+    }
+
+    return httpCodes.OK
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="FileInfo.html">FileInfo</a></li><li><a href="Files.html">Files</a></li><li><a href="FilesTrash.html">FilesTrash</a></li><li><a href="FilesVersions.html">FilesVersions</a></li><li><a href="Groups.html">Groups</a></li><li><a href="HttpError.html">HttpError</a></li><li><a href="module.exports_module.exports.html">exports</a></li><li><a href="ownCloud.html">ownCloud</a></li><li><a href="PublicFiles.html">PublicFiles</a></li><li><a href="SettingsValues.html">SettingsValues</a></li><li><a href="ShareInfo.html">ShareInfo</a></li><li><a href="Shares.html">Shares</a></li><li><a href="SystemTags.html">SystemTags</a></li><li><a href="Users.html">Users</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createHashedKey">createHashedKey</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Tue Jul 07 2020 14:06:37 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
