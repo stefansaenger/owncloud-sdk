@@ -355,7 +355,7 @@ describe('oc.publicFiles', function () {
       }
     }, function (data, description) {
       describe(description, function () {
-        it('should create a folder', async function () {
+        it.only('should create a folder', async function () {
           const provider = createProvider()
           await getCapabilitiesInteraction(provider, testUser, testUserPassword)
           await getCurrentUserInformationInteraction(provider, testUser, testUserPassword)
