@@ -35,6 +35,7 @@
     "test-provider:ocis": "jest --runInBand providerTest.js -t 'ocis as provider'",
     "build:docs": "jsdoc -c jsdoc.conf.json",
     "build:system": "webpack"
+    "postinstall": "webpack"
   },
   "homepage": "https://owncloud.github.io/owncloud-sdk/",
   "devDependencies": {
