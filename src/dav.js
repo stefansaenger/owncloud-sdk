@@ -30,8 +30,8 @@ export class Dav {
       oc: 'http://owncloud.org/ns'
     }
 
-    this.client = createClient(baseUrl, {})
-    this.clientv2 = createClient(baseUrlv2, {})
+    this.client = createClient(baseUrl, { withCredentials: true })
+    this.clientv2 = createClient(baseUrlv2, { withCredentials: true })
   }
 
   _escapeXml (s) {

@@ -264,7 +264,8 @@ class helpers {
       fetch(this.instance + path, {
         method: method,
         body: options.body,
-        headers: headers
+        headers: headers,
+        credentials: "same-origin"
       })
         .then(res => {
           if (res.status >= 400) {
@@ -330,7 +331,8 @@ class helpers {
       }
       fetch(url, {
         method: 'GET',
-        headers: headers
+        headers: headers,
+        credentials: "same-origin"
       })
         .then(async res => {
           res.statusCode = res.status
@@ -634,7 +636,8 @@ class helpers {
     const init = {
       method: options.method,
       mode: 'cors',
-      headers: headers
+      headers: headers,
+      credentials: "same-origin"
     }
     if (options.data !== null) {
       init.body = JSON.stringify(options.data)
